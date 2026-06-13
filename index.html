@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f2f0ed">
+  <title>Baize OS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-name">BAIZE<br>OS<span>✳</span></div>
+        <p>LOCAL-FIRST AI MEMORY<br>& EXECUTION SYSTEM</p>
+      </div>
+      <nav id="navigation" aria-label="Main navigation"></nav>
+      <section class="local-card">
+        <div><span class="status-dot"></span><strong>LOCAL ONLY</strong></div>
+        <p>All data stays on this device.</p>
+        <div class="orbit-mark">✳</div>
+      </section>
+      <button class="profile-card" data-page="profile">
+        <span class="profile-orb"></span>
+        <span><strong>ALEX BAIZE</strong><small>Edit profile ↗</small></span>
+      </button>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="globalSearch" type="search" placeholder="Search across notes, tags, projects, ideas...">
+          <kbd>⌘ K</kbd>
+        </label>
+        <button class="button button-dark" id="newNote">＋ NEW NOTE <span>↗</span></button>
+        <div class="local-status"><span class="status-dot"></span><strong>LOCAL ONLY</strong><small>Offline ready</small></div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">DARK ◐</button>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow" id="pageKicker">EXECUTION / 03</p>
+          <h1 id="pageTitle">CURRENT PLAN</h1>
+        </div>
+        <div class="hero-mark">✦</div>
+        <p class="hero-copy" id="pageSubtitle">Focus today.<br>Execute consistently.<br>Build momentum.</p>
+      </section>
+
+      <div class="content-grid">
+        <section class="main-column">
+          <section class="priority-section" id="prioritySection">
+            <div class="section-title"><span>✳</span> TODAY'S PRIORITIES</div>
+            <div class="priorities" id="priorities"></div>
+          </section>
+
+          <section class="notes-section">
+            <div class="section-heading">
+              <div><strong id="listTitle">PLAN NOTES</strong><span class="count" id="noteCount">0</span></div>
+              <select id="tagFilter" aria-label="Filter notes by tag">
+                <option value="">Filter by tag</option>
+              </select>
+            </div>
+            <div class="notes-table">
+              <div class="notes-header">
+                <span></span><span>TITLE</span><span>TAGS</span><span>UPDATED ↓</span><span></span>
+              </div>
+              <div id="notesList"></div>
+              <button class="add-note-row" id="addNoteRow">＋ Add note</button>
+            </div>
+          </section>
+
+          <section class="editor" id="editor">
+            <div class="editor-head">
+              <div><strong>EDITING NOTE</strong><span class="editing-pill" id="editingTitle">Untitled</span></div>
+              <small id="lastEdited"></small>
+            </div>
+            <label class="field">
+              <span>TITLE</span>
+              <input id="noteTitle" type="text" placeholder="Note title">
+            </label>
+            <label class="field">
+              <span>TAGS <small>comma separated</small></span>
+              <input id="noteTags" type="text" placeholder="focus, planning">
+            </label>
+            <label class="field">
+              <span>NOTE</span>
+              <textarea id="noteContent" rows="11" placeholder="Write what matters..."></textarea>
+            </label>
+            <div class="editor-actions">
+              <button class="button button-dark" id="saveNote">SAVE NOTE <span>↗</span></button>
+              <span id="wordCount">0 words</span>
+              <button class="button button-plain danger" id="deleteNote">DELETE NOTE</button>
+            </div>
+          </section>
+        </section>
+
+        <aside class="context-panel">
+          <div class="context-head">
+            <div><strong>AI CONTEXT</strong><span class="count" id="selectedCount">0</span></div>
+            <span>✳</span>
+          </div>
+          <p>Selected notes will be included in your exported AI context.</p>
+          <button class="text-button" id="clearSelection">CLEAR ALL</button>
+          <div class="selected-list" id="selectedList"></div>
+          <button class="button export-button" id="exportContext">
+            <span>EXPORT AI CONTEXT ↗</span>
+          </button>
+          <label class="field export-format">
+            <span>EXPORT FORMAT</span>
+            <select id="exportFormat">
+              <option value="markdown">Markdown (.md)</option>
+              <option value="text">Plain text (.txt)</option>
+              <option value="clipboard">Copy to clipboard</option>
+            </select>
+          </label>
+          <div class="art-panel">
+            <img src="assets/chrome-memory.png" alt="Chrome android bust with pink halo">
+            <span>MEMORY<br>IS ACTION</span>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
